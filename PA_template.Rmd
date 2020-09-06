@@ -30,6 +30,8 @@ step_day$date <- as.Date(strptime(step_day$date, format = "%Y-%m-%d"))
 hist(step_day$steps, ylim = c(0,30),
      xlab = "Steps per Day", ylab = "Frequency",
      main  = "Histogram of Steps per Day")
+dev.copy(png, "hist1.png")
+dev.off()
 summary(step_day$steps)
 ```
 The mean of total steps per day is 10766 and the median is 10765. 
@@ -40,6 +42,8 @@ The mean of total steps per day is 10766 and the median is 10765.
 step_inter <- aggregate(steps ~ interval, activity, mean, na.rm = TRUE)
 plot(steps ~ interval, step_inter, type = "l", xlab = "Time Interval", 
      main = "Average Steps (5-minute interval)")
+dev.copy(png, "plot1.png")
+dev.off()
 ```
 2. Which 5-minute interval, on average across all the days in the dateset, contains the maximum of steps?
 ```{r}
@@ -73,6 +77,8 @@ for(i in 1:nrow(activity_impute)) {
 activity_day_impute <- aggregate(steps ~ date, activity_impute, sum)
 hist(activity_day_impute$steps, xlab = "Steps per Day", ylab = "Frequency",
      main = "Total Number of Steps per Day")
+dev.copy(png, "hist2.png")
+dev.off()
 summary(activity_day_impute$steps)
 ```
 The mean did not change after imputing the missing values, and median have a subtle change from 10765 to 10766. 
@@ -97,6 +103,8 @@ step_inter_impute <- aggregate(steps ~ interval + day , activity_impute, mean)
 library(lattice)
 xyplot(steps ~ interval | day, step_inter_impute, type = "l",
        layout=c(1,2), xlab = "Interval", ylab = "#Steps")
+dev.copy(png, "plot2.png")
+dev.off()
 ```
 
 
