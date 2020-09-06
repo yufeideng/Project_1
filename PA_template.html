@@ -421,6 +421,7 @@ plot(steps ~ interval, step_inter, type = &quot;l&quot;, xlab = &quot;Time Inter
 <p>The 835th 5-minute interval contains the maximum of steps on average. ## Imputing missing values 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)</p>
 <pre class="r"><code>sum(is.na(activity$steps))</code></pre>
 <pre><code>## [1] 2304</code></pre>
+<p>There are 2304 missing values in the original dataset.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. Then, let’s use the simplest strategy, which is imputing data by the mean for that 5-minute interval.</li>
 </ol>

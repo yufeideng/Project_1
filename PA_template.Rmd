@@ -55,6 +55,8 @@ The 835th 5-minute interval contains the maximum of steps on average.
 ```{r}
 sum(is.na(activity$steps))
 ```
+There are 2304 missing values in the original dataset.
+
 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. Then, let's use the simplest strategy, which is imputing data by the mean for that 5-minute interval. 
 
 I will fill in the missing values in the original dataset with the mean per interval. First, write a function to get mean per interval using non-missing data. 
